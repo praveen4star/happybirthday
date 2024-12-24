@@ -34,32 +34,27 @@ const fetchData = () => {
 
 let audio = null;
 
-// 在文档加载时预加载音频
 document.addEventListener('DOMContentLoaded', () => {
 	audio = new Audio('music/bgMusic.mp3');
 	audio.preload = 'auto';
 });
 
 const playPauseButton = document.getElementById('playPauseButton');
-let isPlaying = false; // 初始状态为未播放
+let isPlaying = false;
 
 playPauseButton.addEventListener('click', () => {
-	isPlaying = !isPlaying; // 切换播放状态
+	isPlaying = !isPlaying;
 
 	if (isPlaying) {
-		// 如果当前是播放状态，则开始播放音频并更新按钮样式
 		audio.play();
 		playPauseButton.classList.add('playing');
 	} else {
-		// 如果当前是暂停状态，则暂停音频并更新按钮样式
 		audio.pause();
 		playPauseButton.classList.remove('playing');
 	}
 });
 
-// Animation Timeline
 const animationTimeline = () => {
-	// Spit chars that needs to be animated individually
 	const textBoxChars = document.getElementsByClassName('hbd-chatbox')[0];
 	const hbd = document.getElementsByClassName('wish-hbd')[0];
 
